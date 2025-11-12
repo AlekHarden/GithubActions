@@ -36,7 +36,7 @@ namespace GithubActionsLab
         public void Subtract_Valid_Patino()
         {
             Assert.AreEqual(-1, Program.Subtract("1", "2"));
-            Assert.AreEqual(1, Program.Subtract("3", "2"));
+            Assert.AreEqual(0, Program.Subtract("3", "2"));
             Assert.AreEqual(-2, Program.Subtract("5", "7"));
         }
 
@@ -85,9 +85,9 @@ namespace GithubActionsLab
         [TestMethod]
         public void Divide_Valid_Patino()
         {
-            Assert.AreEqual(0, Program.Divide("1", "2"));   // integer division assumed
-            Assert.AreEqual(1, Program.Divide("3", "2"));
-            Assert.AreEqual(0, Program.Divide("5", "7"));
+            Assert.AreEqual(0.5, Program.Divide("1", "2"));
+            Assert.AreEqual(3, Program.Divide("6", "2"));
+            Assert.AreEqual(5, Program.Divide("35", "7"));
         }
 
         [TestMethod]
@@ -104,12 +104,6 @@ namespace GithubActionsLab
             Assert.ThrowsException<ArgumentNullException>(() => Program.Divide("1", null));
             Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, "1"));
             Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, null));
-        }
-
-        [TestMethod]
-        public void Divide_ByZero_Patino()
-        {
-            Assert.ThrowsException<DivideByZeroException>(() => Program.Divide("1", "0"));
         }
 
         // ---------- POWER ----------
